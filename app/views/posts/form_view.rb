@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 class Posts::FormView < ApplicationView
-  def initialize(post:)
-    @post = post
-  end
-
   def view_template
     form_with(model: @post, class: "contents") do |form|
       if @post.errors.any?

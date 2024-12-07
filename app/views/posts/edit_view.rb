@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 class Posts::EditView < ApplicationView
-  def initialize(post:)
-    @post = post
-  end
-
   def view_template
     div(class: "mx-auto md:w-2/3 w-full") do
       h1(class: "font-bold text-4xl") { "Edit post" }

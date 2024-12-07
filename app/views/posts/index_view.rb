@@ -1,12 +1,6 @@
 # frozen_string_literal: true
 
 class Posts::IndexView < ApplicationView
-  attr_reader :posts
-
-  def initialize(posts:)
-    @posts = posts
-  end
-
   def view_template
     div(class: "w-full") do
       if flash.present?
@@ -23,8 +17,8 @@ class Posts::IndexView < ApplicationView
       end
 
       div(id: "posts", class: "min-w-full") do
-        posts.each do |post|
-          render post
+        @posts.each do |post|
+          render Posts::PostView.new(post:)
           p {
             link_to "Show this post", post, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"
           }

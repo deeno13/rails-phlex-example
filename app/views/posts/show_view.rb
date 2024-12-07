@@ -1,11 +1,6 @@
 # frozen_string_literal: true
 
 class Posts::ShowView < ApplicationView
-  def initialize(notice: nil, post:)
-    @notice = notice
-    @post = post
-  end
-
   def view_template
     div(class: "mx-auto md:w-2/3 w-full flex") do
       div(class: "mx-auto") do

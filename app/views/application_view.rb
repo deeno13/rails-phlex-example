@@ -11,4 +11,11 @@ class ApplicationView < ApplicationComponent
     constant = Phlex::Rails::Helpers.const_get(constant)
     include constant if constant.is_a?(Module)
   end
+
+  def initialize(**args)
+    args.each do |key, value|
+      instance_variable_set("@#{key}", value)
+      # self.class.attr_reader key
+    end
+  end
 end
